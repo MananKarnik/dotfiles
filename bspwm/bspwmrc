@@ -19,6 +19,6 @@ bspc rule -a Emacs state=tiled
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --restore &
-#picom &
+picom --experimental-backends &
 kitty
 
