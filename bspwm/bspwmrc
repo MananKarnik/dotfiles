@@ -1,21 +1,30 @@
 #! /bin/sh
 
+alias bc="bspc config"
+alias br="bspc rule"
+
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10 
 
-bspc config border_width         2 
-bspc config window_gap           4
+bc border_width         3 
+bc focused_border_color "#e1acff"
+bc normal_border_color  "#c792ea"
 
-bspc config split_ratio          0.50
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bc window_gap           6
+ 
+bc split_ratio          0.50
+bc borderless_monocle   true
+bc gapless_monocle      true
 
-# bspc rule -a Gimp desktop='^8' state=floating follow=on
-# bspc rule -a Chromium desktop='^2'
-# bspc rule -a mplayer2 state=floating
-# bspc rule -a Kupfer.py focus=on
-# bspc rule -a Screenkey manage=off
 
-bspc rule -a Emacs state=tiled
+# br -a Gimp desktop='^8' state=floating follow=on
+# br -a Chromium desktop='^2'
+# br -a mplayer2 state=floating
+# br -a Kupfer.py focus=on
+# br -a Screenkey manage=off
+
+br -a Google-chrome desktop="^2" state=fullscreen
+br -a Emacs desktop="^3" state=fullscreen
+br -a discord desktop="^4" state=fullscreen
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --restore &
